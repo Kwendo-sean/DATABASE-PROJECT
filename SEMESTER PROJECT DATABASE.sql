@@ -83,7 +83,7 @@ INSERT INTO Commuter(Commuter_ID, Commuter_Name, Commuter_Email, Account_Balance
 VALUES
 ('COMM1','Alice Otieno', 'AliceOti@gmail.com', 10000.00,'M-Pesa','Wheelchair Ramp'),
 ('COMM2', 'Ruman Abdullahi', 'RumanAbdul@gmail.com', 15000.00,'Card','Audio Assistance'),
-('COMM3', 'Danniella Wanjohi','Danniella Wanjohi@gmail.com', 23000.10, 'M-Pesa',NULL),
+('COMM3', 'Daniella Wanjohi','Daniella Wanjohi@gmail.com', 23000.10, 'M-Pesa',NULL),
 ('COMM4', 'Benson Mwangi','BensonMwangi@yahoo.com',2000.99,'Cash','Wheelchair Ramp'),
 ('COMM5', 'Natasha Mumbi','NatashaMumbi@yahoo.com',40000.23,'M-Pesa',NULL),
 ('COMM6', 'Emmanuel Mutinda','EmmanuelMutinda@diddy.com',210.22,'Card','Braille Labels');
