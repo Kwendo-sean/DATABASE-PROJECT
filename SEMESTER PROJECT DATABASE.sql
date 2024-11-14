@@ -10,7 +10,7 @@ Accessibility_features VARCHAR(100)
 CREATE TABLE Driver(
 Driver_ID VARCHAR(100) PRIMARY KEY,
 Driver_Name VARCHAR(100) NOT NULL,
-License_Number VARCHAR(100) NOT NULL
+License_Number VARCHAR(100) NOT NULL,
 Vehicle_ID VARCHAR(100),
 Training_ID VARCHAR(100),
 FOREIGN KEY (Vehicle_ID) REFERENCES Vehicle (Vehicle_ID),
