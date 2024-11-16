@@ -71,7 +71,6 @@ FOREIGN KEY (Commuter_ID) REFERENCES Commuter(Commuter_ID),
 FOREIGN KEY (Trip_ID) REFERENCES Trip(Trip_ID)
 );
 
-
 CREATE TABLE Driver_Training(
 Training_ID VARCHAR(100) PRIMARY KEY,
 Description TEXT NOT NULL,
@@ -97,17 +96,15 @@ VALUES
 ('COMM4', 'Benson Mwangi','BensonMwangi@diddy.com',2000.99,'Cash','Wheelchair Ramp'),
 ('COMM5', 'Natasha Mumbi','NatashaMumbi@yahoo.com',40000.23,'M-Pesa',NULL),
 ('COMM6', 'Emmanuel Mutinda','EmmanuelMutinda@gmail.com',210.22,'Card','Braille Labels');
-SELECT * FROM Commuter;
 
 INSERT INTO Driver(Driver_ID, Driver_Name, License_Number, Vehicle_ID, Training_ID)
 VALUES
-('DRV001','John Maina', 'LN4567','',''),
-('DRV002','Michael Oriama','LN8900','',''),
-('DRV003','Brian Onyango','LN8762','',''),
-('DRV004','Paul Kimanda','LN3210','',''),
-('DRV005','Elizabeth Moraa','LN8876','',''),
-('DRV006','Allejandro Griamldo','LN5400','','');
-SELECT * FROM Driver;
+('DRV001','John Maina', 'LN4567',NULL,NULL),
+('DRV002','Michael Oriama','LN8900',NULL,NULL),
+('DRV003','Brian Onyango','LN8762',NULL,NULL),
+('DRV004','Paul Kimanda','LN3210',NULL,NULL),
+('DRV005','Elizabeth Moraa','LN8876',NULL,NULL),
+('DRV006','Allejandro Griamldo','LN5400',NULL,NULL);
 
 INSERT INTO GPS_Tracker(GPS_TRACKER_ID, Vehicle_ID)
 VALUES
@@ -117,27 +114,24 @@ VALUES
 ('GPS004', 'VEH004'),
 ('GPS005', 'VEH005'),
 ('GPS006', 'VEH006');
-SELECT * FROM GPS_Tracker;
 
 INSERT INTO Vehicle(Vehicle_ID, Model, Driver_ID,GPS_Tracker_ID,Number_plate, Accessibility_features,Trip_ID, Maintenance_ID)
 VALUES
-('VEH001', 'Toyota Hiace', 'DRV001', 'GPS001', 'KCB123A', 'Wheelchair Ramp','',''),
-('VEH002', 'Nissan NV350', 'DRV002', 'GPS002', 'KCA456B', 'Audio Assistance','',''),
-('VEH003', 'Toyota Coaster', 'DRV003', 'GPS003', 'KDA789C', 'Braille Labels','',''),
-('VEH004', 'Isuzu ', 'DRV004', 'GPS004', 'KCC123D', 'Elevator Access','',''),
-('VEH005', 'Mitsubishi Rosa', 'DRV005', 'GPS005', 'KBL456E', 'Audio Assistance','',''),
-('VEH006', 'Ford Transit', 'DRV006', 'GPS006', 'KDD789F', 'Wheelchair Ramp','','');
-SELECT * FROM Vehicle;
+('VEH001', 'Toyota Hiace', 'DRV001', 'GPS001', 'KCB123A', 'Wheelchair Ramp',NULL,NULL),
+('VEH002', 'Nissan NV350', 'DRV002', 'GPS002', 'KCA456B', 'Audio Assistance',NULL,NULL),
+('VEH003', 'Toyota Coaster', 'DRV003', 'GPS003', 'KDA789C', 'Braille Labels',NULL,NULL),
+('VEH004', 'Isuzu ', 'DRV004', 'GPS004', 'KCC123D', 'Elevator Access',NULL,NULL),
+('VEH005', 'Mitsubishi Rosa', 'DRV005', 'GPS005', 'KBL456E', 'Audio Assistance',NULL,NULL),
+('VEH006', 'Ford Transit', 'DRV006', 'GPS006', 'KDD789F', 'Wheelchair Ramp',NULL,NULL);
 
-INSERT INTO Route(Route_ID, Route_Name,Fare_Amount,Trip_ID)
+INSERT INTO Route(Route_ID, Route_Name,Fare_Amount)
 VALUES
-('RTE001', 'CBD to Westlands', 50,''),
-('RTE002', 'CBD to Karen', 80,''),
-('RTE003', 'CBD to Thika', 120,''),
-('RTE004', 'CBD to Rongai', 100,''),
-('RTE005', 'CBD to Embakasi', 60,''),
-('RTE006', 'CBD to Mombasa Road', 70,'');
-SELECT * FROM Route;
+('RTE001', 'CBD to Westlands', 50),
+('RTE002', 'CBD to Karen', 80),
+('RTE003', 'CBD to Thika', 120),
+('RTE004', 'CBD to Rongai', 100),
+('RTE005', 'CBD to Embakasi', 60),
+('RTE006', 'CBD to Mombasa Road', 70);
 
 INSERT INTO Maintenance(Maintenance_ID, Vehicle_ID, Maintenance_cost)
 VALUES
@@ -147,7 +141,6 @@ VALUES
 ('MTN004', 'VEH004', 8000),
 ('MTN005', 'VEH005', 5500),
 ('MTN006', 'VEH006', 7500);
-SELECT * FROM Maintenance;
 
 INSERT INTO Trip(Trip_ID, Route_ID, Vehicle_ID, Status)
 VALUES
@@ -157,7 +150,6 @@ VALUES
 ('TRP004', 'RTE004', 'VEH004', 'Completed'),
 ('TRP005', 'RTE005', 'VEH005', 'In Transit'),
 ('TRP006', 'RTE006', 'VEH006', 'Scheduled');
-SELECT * FROM Trip;
 
 INSERT INTO Payment(Payment_ID, Commuter_ID, Trip_ID, Amount, Payment_Method)
 VALUES
@@ -167,7 +159,6 @@ VALUES
 ('PAY004', 'COMM4', 'TRP004', 100, 'M-Pesa'),
 ('PAY005', 'COMM5', 'TRP005', 60, 'Credit Card'),
 ('PAY006', 'COMM6', 'TRP006', 70, 'Cash');
-SELECT * FROM Payment;
 
 INSERT INTO Driver_Training(Training_ID, Description, Driver_ID, Completion_Date)
 VALUES
@@ -177,7 +168,6 @@ VALUES
 ('TRN004', 'Customer Service', 'DRV004', '2024-04-25'),
 ('TRN005', 'Vehicle Maintenance', 'DRV005', '2024-05-30'),
 ('TRN006', 'Safety Training', 'DRV006', '2024-06-05');
-SELECT * FROM Driver_Training;
 
 INSERT INTO Station(Station_ID, Accessibility_Features)
 VALUES
@@ -187,7 +177,6 @@ VALUES
 ('STN004', 'Audio Assistance'),
 ('STN005', 'Accessible Restrooms'),
 ('STN006', 'Seating for Elderly');
-SELECT * FROM Station;
 
 INSERT INTO AccessibilityFeatures(Features_ID, Description)
 VALUES
@@ -197,6 +186,47 @@ VALUES
 ('AF004', 'Audio Assistance'),
 ('AF005', 'Reserved Parking'),
 ('AF006', 'Lowered Ticket Counters');
+
+UPDATE Driver
+SET Vehicle_ID = 'VEH001' , Training_ID = 'TRN001'
+WHERE Driver_ID = 'DRV001';
+
+UPDATE Driver
+SET Vehicle_ID = 'VEH002' , Training_ID = 'TRN002'
+WHERE Driver_ID = 'DRV002';
+
+UPDATE Driver
+SET Vehicle_ID = 'VEH003' , Training_ID = 'TRN003'
+WHERE Driver_ID = 'DRV003';
+
+UPDATE Driver
+SET Vehicle_ID = 'VEH004' , Training_ID = 'TRN004'
+WHERE Driver_ID = 'DRV004';
+
+UPDATE Vehicle
+SET Trip_ID = 'TRP001' , Maintenance_ID = 'MTN001'
+WHERE Vehicle_ID = 'VEH001';
+
+UPDATE Vehicle
+SET Trip_ID = 'TRP002' , Maintenance_ID = 'MTN002'
+WHERE Vehicle_ID = 'VEH002';
+
+UPDATE Vehicle
+SET Trip_ID = 'TRP003' , Maintenance_ID = 'MTN003'
+WHERE Vehicle_ID = 'VEH003';
+
+UPDATE Vehicle
+SET Trip_ID = 'TRP004' , Maintenance_ID = 'MTN004'
+WHERE Vehicle_ID = 'VEH004';
+
+SELECT * FROM Commuter;
+SELECT * FROM Driver;
+SELECT * FROM GPS_Tracker;
+SELECT * FROM Vehicle;
+SELECT * FROM Route;
+SELECT * FROM Maintenance;
+SELECT * FROM Trip;
+SELECT * FROM Payment;
+SELECT * FROM Driver_Training;
+SELECT * FROM Station;
 SELECT * FROM AccessibilityFeatures;
-
-
